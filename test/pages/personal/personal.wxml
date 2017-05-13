@@ -1,0 +1,19 @@
+
+<!--pages/personal/personal.wxml-->
+<view class="Show" style="margin-top:20%">学号/工号：{{user_id}}</view>
+<view class="Show" style="margin-bottom:30%;">姓名：{{user_name}}</view>
+<button type="primary" bindtap="changePassword" style="display:{{display1}};margin-top:200px;"> 修改密码 </button>
+<view class="input" style="display:{{display2}};">
+  <input password="true" bindinput="oldPassword" value="{{oldPassword}}" maxlength="12" placeholder="旧密码" />
+</view>
+<view class="input" style="display:{{display2}};">
+  <input password="true" bindinput="newPassword1" value="{{newPassword1}}" maxlength="12" placeholder="新密码" />
+</view>
+<view class="input" style="display:{{display2}};margin-bottom:5%;">
+  <input password="true" bindinput="newPassword2" value="{{newPassword2}}" maxlength="12" placeholder="确认密码" />
+</view>
+<view style="display:{{display2}};  margin-left: auto; margin-right: auto;width:210px">
+  <button type="primary" bindtap="cancel" style="display:inline-block;width: 100px;background-color: #e64340;   margin-right: 10px;"> 取消 </button>
+  <button type="primary" bindtap="confirmChange" style="display:inline-block;width: 100px; "> 确定 </button>
+</view>
+<button type="primary" bindtap="Logout" style="background-color: #e64340;"> 退出登录 </button>

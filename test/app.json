@@ -1,0 +1,40 @@
+{
+  "pages":[
+    "pages/login/login",
+    "pages/sign/sign",
+    "pages/personal/personal",
+    "pages/course/course",
+    "pages/detail/detail"
+  ],
+
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "高校考勤系统",
+    "navigationBarTextStyle":"black"
+  },
+   "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#09bb07",
+    "backgroundColor": "white",
+    "borderStyle": "white",
+    "list": [{
+      "pagePath": "pages/course/course",
+      "text": "我的课程",     
+      "iconPath": "images/course.png",
+      "selectedIconPath": "images/course_hl.png"
+    },{
+      "pagePath": "pages/sign/sign",
+      "text": "考勤",     
+      "iconPath": "images/sign.png",
+      "selectedIconPath": "images/sign_hl_1.png"
+    },
+    {
+      "pagePath": "pages/personal/personal",
+      "text": "个人中心",     
+      "iconPath": "images/personal_1.png",
+      "selectedIconPath": "images/personal_hl.png"
+    }]
+  },
+  "debug": true
+}

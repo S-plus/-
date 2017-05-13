@@ -1,0 +1,76 @@
+
+<!--pages/detail/detail.wxml-->
+<view wx:if="{{userStatus == 'student'}}">
+  <view wx:if="{{record}}">
+    <view wx:for="{{record}}">
+      <view>
+        <view>{{item.signup_time}} 发起</view>
+        <view wx:if="{{item.sign_state == true}}">{{item.signin_time}} 签到</view>
+        <view wx:else>未签到</view>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <view>暂无考勤记录</view>
+  </view>
+</view>
+<view wx:else>
+  <view style="margin-bottom:10px">
+    <picker mode="date" value="{{date}}" start="2016-01-01" end="{{dateNow}}" bindchange="bindDateChange">
+      <view class="picker" style="text-align:center;">
+        日期选择: {{date}}
+      </view>
+    </picker>
+  </view>
+
+  <!--<view wx:if="{{record != null}}">
+    <view wx:for="{{record}}">
+      <view style="margin-bottom:5px">
+        <scroll-view scroll-y="true" scroll-top="100" style="margin-left: auto;margin-right: auto;">
+          <view bindtap="selectRecord" id="{{item.objectId}}"> {{index+1}}. {{item.stu_id}} {{item.stu_name}}
+            <view wx:if="{{item.sign_state == true}}" style="display: inline-block;"> 已签到</view>
+            <view wx:else style="display: inline-block;">未签到</view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>-->
+  <view wx:if="{{notSign != null || signed != null}}">
+
+    <!--<view class="signShow" style="text-align: center;margin-bottom: 15px;">未签到
+      <view style="color:#e64340" class="number">{{notSign.length}}</view>人次</view>
+    <scroll-view scroll-y="true" scroll-top="100" style="height: 100px;margin-left: auto;margin-right: auto;margin-bottom: 25px;">
+      <view wx:for="{{notSign}}" style="text-align: center;">
+        {{index+1}}. {{item.stu_id}} {{item.stu_name}}
+      </view>
+    </scroll-view>
+    <view class="signShow" style="text-align: center;margin-bottom: 15px;">已签到
+      <view style="color:#09bb07" class="number">{{signed.length}}</view>人次</view>
+    <scroll-view scroll-y="true" scroll-top="100" style="height: 100px;margin-left: auto;margin-right: auto;margin-bottom: 25px;">
+      <view style="text-align: center;" wx:for="{{signed}}">
+        {{index+1}}. {{item.stu_id}} {{item.stu_name}}
+      </view>
+    </scroll-view>-->
+    <view class="signShow" style="text-align: center;margin-bottom: 15px;">未签到
+      <view style="color:#e64340" class="number">{{notSign.length}}</view>人次</view>
+    <scroll-view scroll-y="true" scroll-top="100" style="height: 200px;margin-left: auto;margin-right: auto;margin-bottom: 25px;">
+      <view wx:for="{{notSign}}" style="text-align: center;">
+        <view bindtap="selectRecord" id="{{item.objectId}}">
+          {{index+1}}. {{item.stu_id}} {{item.stu_name}}
+        </view>
+      </view>
+    </scroll-view>
+    <view class="signShow" style="text-align: center;margin-bottom: 15px;">已签到
+      <view style="color:#09bb07" class="number">{{signed.length}}</view>人次</view>
+    <scroll-view scroll-y="true" scroll-top="100" style="height: 200px;margin-left: auto;margin-right: auto;margin-bottom: 25px;">
+      <view style="text-align: center;" wx:for="{{signed}}">
+        <view bindtap="selectRecord" id="{{item.objectId}}">
+          {{index+1}}. {{item.stu_id}} {{item.stu_name}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view wx:else>
+    <view>暂无考勤记录</view>
+  </view>
+</view>

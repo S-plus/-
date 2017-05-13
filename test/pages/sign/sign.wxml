@@ -1,0 +1,66 @@
+
+<!--pages/sign/sign.wxml-->
+
+<!--学生考勤界面-->
+<view wx:if="{{userStatus == 'student'}}">
+  <view wx:if="{{signcheck}}">
+    <view class="signShow" style="margin-top:20%;text-align: center;">签到时间剩余
+      <view style="color:#09bb07" class="number">{{lastTime}}</view>秒</view>
+    <button type="primary" style="margin-top:70%" bindtap="Sign">签到</button>
+  </view>
+  <view wx:else>
+    <view class="signShow" style="color:#09bb07;margin-top:40%;text-align: center;">当前无正在发起的签到</view>
+  </view>
+</view>
+<view wx:else>
+
+  <!--教师考勤界面-->
+  <view wx:if="{{signcheck}}">
+
+    <!--发起考勤界面-->
+    <view class="signShow" style=" display: inline-block;text-align:center;">当前课程：
+      <view style=" display: inline-block;font-size: 25px;color:#09bb07;">{{courseName}}</view>
+    </view>
+    <picker bindchange="bindPickerChange" value="{{index1}}" range="{{_classRoomArray}}" style="margin-top:20%;display:{{display1}};">
+      <view class="picker" class="signShow" style="text-align:;">
+        教室：
+        <view style="color:#09bb07" style=" display: inline-block;font-size: 25px;color:#09bb07;text-align:left;margin-right:10px;">{{_classRoomArray[index1]}} </view>
+        <view style=" display: inline-block;font-size: 15px;color:#888888;">(点击修改)</view>
+      </view>
+    </picker>
+    <picker bindchange="bindPickerDuration" value="{{index2}}" range="{{_lastTime}}" style="display:{{display1}};">
+      <view class="picker" class="signShow" style="text-align:;">
+        签到时长：
+        <view style="color:#09bb07;text-align:left;" class="number">{{_lastTime[index2]}}</view>分钟
+        <view style="text-align:right;font-size: 15px;color:#888888;">(点击修改)</view>
+      </view>
+    </picker>
+    <button type="primary" class="button" bindtap="requestSign" style="margin-top:40%;display:{{display1}};"> 发起签到 </button>
+
+    <!--当前考勤结果显示-->
+    <view wx:if="{{lastTime != 0}}">
+      <view class="signShow" style="text-align: center;display:{{display2}};">签到时间剩余
+        <view style="color:#09bb07" class="number">{{lastTime}}</view>秒</view>
+    </view>
+    <view wx:else>
+      <view class="signShow" style="text-align: center;display:{{display2}};">此轮考勤结束</view>
+    </view>
+    <view class="signShow" style="text-align: center;display:{{display2}};margin-bottom: 15px;">未签到
+      <view style="color:#e64340" class="number">{{notSign.length}}</view>人</view>
+    <scroll-view scroll-y="true" scroll-top="100" style="display:{{display2}};height: 100px;display:{{display2}};margin-left: auto;margin-right: auto;margin-bottom: 25px;">
+      <view wx:for="{{notSign}}" style="text-align: center;">
+        {{item.stu_id}}   {{item.stu_name}}
+      </view>
+    </scroll-view>
+    <view class="signShow" style="text-align: center;display:{{display2}};margin-bottom: 15px;">已签到
+      <view style="color:#09bb07" class="number">{{signed.length}}</view>人</view>
+    <scroll-view scroll-y="true" scroll-top="100" style="display:{{display2}};height: 100px;display:{{display2}};margin-left: auto;margin-right: auto;margin-bottom: 25px;">
+      <view style="text-align: center;" wx:for="{{signed}}">
+        {{item.stu_id}}   {{item.stu_name}}
+      </view>
+    </scroll-view>
+  </view>
+  <view wx:else>
+    <view class="signShow" style="color:#09bb07;margin-top:40%;text-align: center;">当前无可发起的签到</view>
+  </view>
+</view>

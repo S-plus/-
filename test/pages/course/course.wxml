@@ -1,0 +1,22 @@
+
+<!--pages/course/course.wxml-->
+<view class="box" wx:for="{{course}}">
+  <view bindtap="chooseCourse" id="{{item.course_id}}">
+    <view wx:if="{{userStatus == 'student'}}">
+      <view style="font-size:25px;width: 210px;margin-bottom:8px;">{{item.course_name}}</view>
+      <view>
+        <view style="display: inline-block;text-align:left;width: 70px;color:#353535;margin-right:5px;">{{item.tea_name}} </view>
+        <view style="display: inline-block;width: 70px;color:#353535;margin-right:5px;">{{item.course_time}}</view>
+        <view style="display: inline-block;text-align:right;width: 70px;color:#353535;">{{item.cr_name}} </view>
+      </view>
+    </view>
+    <view wx:else>
+      <view style="width: 110px;font-size:25px;width: 210px;margin-bottom:8px;">{{item.course_name}}</view>
+      <view>
+        <view style="display: inline-block;text-align:left;width: 70px;color:#353535;margin-right:5px;">{{item.class_name}} </view>
+        <view style="display: inline-block;width: 70px;color:#353535;margin-right:5px;">{{item.course_time}}</view>
+        <view style="display: inline-block;text-align:right;width: 70px;color:#353535;">{{item.cr_name}} </view>
+      </view>
+    </view>
+  </view>
+</view>

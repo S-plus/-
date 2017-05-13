@@ -1,0 +1,16 @@
+/* pages/sign/sign.wxss */
+
+.signShow {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  width: 250px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.number {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 35px;
+  display: inline-block;
+}

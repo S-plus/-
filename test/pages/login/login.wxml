@@ -1,0 +1,12 @@
+
+<!--pages/login/login.wxml-->
+<view class="section">
+  <input maxlength="12" bindinput="accountInput" value="{{accountValue}}" style="display:{{display2}};margin-top:20%" placeholder="账号" />
+</view>
+<view class="section">
+  <input password="true" bindinput="passwordInput" value="{{passwordValue}}" style="display:{{display2}}" maxlength="12" placeholder="密码" />
+</view>
+<button type="primary" bindtap="studentLogin" style="display:{{display1}};margin-top:20%"> 学生登录 </button>
+<button type="primary" bindtap="teacherLogin" style="display:{{display1}}"> 教师登录 </button>
+<button type="primary" bindtap="Login" style="display:{{display2}}"> 登录 </button>
+<view class="returnIdentity" bindtap="returnIdentity" style="display:{{display2}};">重新选择登录身份</view>

@@ -1,0 +1,13 @@
+/* pages/course/course.wxss */
+.box{
+  -moz-box-shadow:3px 3px 3px #b2b2b2; 
+  -webkit-box-shadow:3px 3px 3px #b2b2b2; 
+  box-shadow:3px 3px 3px #b2b2b2;
+  border-top: solid 4px #09bb07;
+  height: 60px;
+  width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding: 5px;
+}
